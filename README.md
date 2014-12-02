@@ -12,7 +12,7 @@ Meetups take place the first Tuesday of each month and you will find all related
 
 ## How to add your session
 
-1. Each Month will have a unique folder if it doesn’t exist add one
+1. Each Month will have a unique folder if it doesn’t exist add one. Format (201X-XX Month Year)
 1. Upload PowerPoint
 1. Upload Code Examples to this folder
 1. Add a ReadMe
