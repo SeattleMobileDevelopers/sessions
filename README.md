@@ -16,3 +16,4 @@ Meetups take place the first Tuesday of each month and you will find all related
 1. Upload PowerPoint
 1. Upload Code Examples to this folder
 1. Add a ReadMe
+1. Issue Pull Request
