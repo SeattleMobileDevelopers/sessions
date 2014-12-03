@@ -1,0 +1,65 @@
+﻿```xml
+<Manifest>
+  <AgentType>iOSUnified_UIKit</AgentType>
+  <Guid>4f643f65-fb1b-4dc1-b820-b7ca7eed13a1</Guid>
+  <Resources />
+</Manifest>
+```
+```csharp
+// Sketch your next great idea!
+
+using UIKit;
+using Foundation;
+using CoreGraphics;
+
+var label = new UILabel () {
+	Text = "Hello",
+	Font = UIFont.BoldSystemFontOfSize (44),
+};
+
+var button = UIButton.FromType (UIButtonType.RoundedRect);
+button.SetTitle ("Press me!", UIControlState.Normal);
+button.Font = UIFont.SystemFontOfSize (33);
+button.TintColor = UIColor.FromRGB (0, 0.8f, 0.15f);
+
+button.TouchUpInside += (sender, e) => {
+	var alert = new UIAlertView ();
+	alert.Message = "Good job!";
+	alert.AddButton ("OK");
+	alert.Show ();
+};
+
+RootView.BackgroundColor = UIColor.FromRGB (1, 1, 0.9f);
+
+RootView.Add (button);
+RootView.Add (label);
+
+Action<UIView, UIView, NSLayoutAttribute> pin = (a, b, attr) => {
+	var c = NSLayoutConstraint.Create (
+		a, attr,
+		NSLayoutRelation.Equal,
+		b, attr,
+		1.0f, 0.0f);
+	a.AddConstraint (c);
+	b.TranslatesAutoresizingMaskIntoConstraints = false;
+};
+
+Action<UIView, UIView, UIView> vbox = (box, a, b) => {
+	var c = NSLayoutConstraint.Create (
+		a, NSLayoutAttribute.Bottom,
+		NSLayoutRelation.Equal,
+		b, NSLayoutAttribute.Top,
+		1.0f, 0.0f);
+	box.AddConstraint (c);
+	a.TranslatesAutoresizingMaskIntoConstraints = false;
+	b.TranslatesAutoresizingMaskIntoConstraints = false;
+};
+
+pin (RootView, label, NSLayoutAttribute.CenterX);
+pin (RootView, button, NSLayoutAttribute.CenterX);
+pin (RootView, button, NSLayoutAttribute.CenterY);
+
+vbox (RootView, label, button);
+
+```
+
